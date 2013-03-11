@@ -26,6 +26,15 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('/templates/index.html')
         self.response.write(template.render())
 
+class Mother_Board_List(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('/templates/index.html')
+        template_values= {
+           'form': '<form><h5>Choose your settings for motherboard:</h5><input type="radio">AMD<input type="radio">Intel<input type="submit" name="Retrieve List"></form>'
+        }
+        self.response.write(template.render(template_values))  
+
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/mother_boards_list', Mother_Board_List)
 ], debug=True)
