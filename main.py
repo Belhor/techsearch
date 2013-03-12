@@ -17,7 +17,7 @@
 import webapp2
 import jinja2
 import os
-
+from vars.component_forms.component_vars import *
 
 jinja_environment = jinja2.Environment(autoescape=True, loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
@@ -28,9 +28,10 @@ class MainHandler(webapp2.RequestHandler):
 
 class Mother_Board_List(webapp2.RequestHandler):
     def get(self):
+    	
         template = jinja_environment.get_template('/templates/index.html')
         template_values= {
-           'form': '<form><h5>Choose your settings for motherboard:</h5><input type="radio">AMD<input type="radio">Intel<input type="submit" name="Retrieve List"></form>'
+           'form': motherboard_form
         }
         self.response.write(template.render(template_values))  
 
