@@ -31,7 +31,7 @@ class Mother_Board_List(webapp2.RequestHandler):
     	
         template = jinja_environment.get_template('/templates/index.html')
         template_values= {
-           'form': motherboard_form
+           'form': personal_refinments+motherboard_form
         }
         self.response.write(template.render(template_values))  
 
